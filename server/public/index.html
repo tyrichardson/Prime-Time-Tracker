@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Prime Time Tracker</title>
+
+  <!-- <link href="vendors/angular-material.min.css" rel="stylesheet" type="text/css">
+
+  <!Angular and Angular-Route -->
+  <script src="vendors/angular.min.js" charset="utf-8"></script>
+  <!--<script src="vendors/angular-route.min.js" charset="utf-8"></script> -->
+
+  <!-- Rest of Angular Material -->
+  <!-- <script src="vendors/angular-animate.min.js" charset="utf-8"></script>
+  <script src="vendors/angular-aria.min.js" charset="utf-8"></script>
+  <script src="vendors/angular-messages.min.js" charset="utf-8"></script>
+  <script src="vendors/angular-material.min.js" charset="utf-8"></script> -->
+
+  <!-- Client Side -->
+  <script src="scripts/client.js"></script>
+  <!-- <script src="scripts/timeTracker.service.js"></script>
+  <script src="scripts/addEntry.controller.js"></script>
+  <script src="scripts/manageProjects.controller.js"></script>
+  <script src="scripts/reports.controller.js"></script> -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/styles.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body ng-app="TimeTrackerApp">
+  <div>Prime Time Tracker
+    <br>
+    Angular Test {{ 2 === 2}}
+    <!-- <div ng-include=" ' /views/templates/nav.html' "></div>
+      <main ng-view>
+        Add Entry, Manage Projects, Reports
+      </main> -->
+    <!-- </div> -->
+  </div>
+
+  <div ng-controller="TimeTrackerAppController as vm">
+
+  <h3>Add Entry POST</h3>
+  <!-- the POST -->
+  <div class="addEntry">
+    <input type="text" ng-model="vm.newEntry.entry" placeholder="Entry"></input>
+    <input type="text" ng-model="vm.newEntry.date" placeholder="Date"></input>
+    <input type="number" ng-model="vm.newEntry.hours" placeholder="Total hours"></input> 
+    <button ng-click="vm.addEntry(vm.newEntry)">Submit</button>
+  </div>
+
+  <br>
+    <!-- the GET -->
+    <h3 class="header3">History, the addEntry GET</h3>
+    <div class="entryHistory">
+      <table>
+        <thead>
+          <tr>
+            <th>Entry</th>
+            <th>Date</th>
+            <th>Hours</th>
+          </tr>
+        </thead>
+        <tbody ng-repeat="entry in vm.addEntry.list">
+          <tr>
+            <td>{{entry.entry}}</td>
+            <td>{{entry.date}}</td>
+            <td>{{entry.hours}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <br><br><hr>
+
+  <h3>Add Project POST</h3>
+  <!-- the POST -->
+  <div class="addProject">
+    <input type="text" ng-model="vm.newProject.project_name" placeholder="Project name"></input> 
+    <button ng-click="vm.newProject(vm.newProject)">Submit</button>
+  </div>
+
+  <br>
+
+  <!-- the GET -->
+  <h3 class="header3">History, the Project GET</h3>
+  <div class="entryHistory">
+    <table>
+      <thead>
+        <tr>
+          <th>Project</th>
+        </tr>
+      </thead>
+      <tbody ng-repeat="project in vm.addProject.list">
+        <tr>
+          <td>{{project.project_name}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  </div> <!-- end of ng-controller div -->
+</body>
+
+</html>
