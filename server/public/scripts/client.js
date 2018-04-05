@@ -80,6 +80,7 @@ timeTrackerApp.controller('TimeTrackerAppController', ['TimeTrackerAppService',
     self.getProject = timeTrackerAppService.getProject;
 
     self.getEntry();
+    self.getProject();
   }]);
 
 

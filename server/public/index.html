@@ -57,14 +57,15 @@
 
   <br>
     <!-- the GET -->
-    <h3 class="header3">History, the addEntry GET</h3>
-    <div class="entryHistory">
+    <h3>History, the addEntry GET</h3>
+    <div class="getEntry">
       <table>
         <thead>
           <tr>
             <th>Entry</th>
             <th>Date</th>
             <th>Hours</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody ng-repeat="entry in vm.addEntry.list">
@@ -72,6 +73,7 @@
             <td>{{entry.entry}}</td>
             <td>{{entry.date}}</td>
             <td>{{entry.hours}}</td>
+            <td>delete button</td>
           </tr>
         </tbody>
       </table>
@@ -89,17 +91,19 @@
   <br>
 
   <!-- the GET -->
-  <h3 class="header3">History, the Project GET</h3>
-  <div class="entryHistory">
+  <h3>History, the Project GET</h3>
+  <div class="getProject">
     <table>
       <thead>
         <tr>
           <th>Project</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody ng-repeat="project in vm.addProject.list">
         <tr>
           <td>{{project.project_name}}</td>
+          <td>delete button</td>
         </tr>
       </tbody>
     </table>
