@@ -1,16 +1,17 @@
 //router out to database
+const router = express.Router();
 const pool = require('../modules/pool.js');
 let express = require('express');
-let router = express.Router();
+
 
 //GET history of entries
 router.get('/', (req, res) => {
-  let queryText = "SELECT * FROM entries;";
-  pool.query(queryText)
-    .then((result) => {
+  console.log('entered GET entry history in addEntry.router.js');
+  pool.query(`SELECT * FROM entries;`)
+    .then(result => {
       res.send(result.rows);
     })
-    .catch((error) => {
+    .catch(error => {
       console.log('Error in addEntryRouter GET', error);
       res.send(500);
     });
@@ -18,8 +19,10 @@ router.get('/', (req, res) => {
 
 //POST entry
 router.post('/', (req, res) => {
+  console.log('entered POST in addEntry.router.js');
+  const entry = req.body;
   const queryText = "INSERT INTO entries (entry, date, hours) VALUES ($1, $2, $3);";
-  pool.query(queryText, [req.body.entry, req.body.date, req.body.hours])
+  pool.query(queryText, [entry.entry, entry.date, entry.hours])
     .then((result) => {
       res.sendStatus(201);
     })
@@ -31,8 +34,9 @@ router.post('/', (req, res) => {
 
 //DELETE entry
 router.delete('/:id', (req, res) => {
-  const entryId = req.query.id;
-  pool.delete('DELETE FROM "entries" WHERE "id" = $1;', [entryId])
+  console.log('entered DELETE in addEntry.router.js');
+  const entryId = req.params.id;
+  pool.query('DELETE FROM "entries" WHERE "id" = $1;', [entryId])
     .then((result) => {
       res.sendStatus(200);
     })

@@ -1,18 +1,13 @@
-timeTrackerApp.controller('TimeTrackerAppController', ['TimeTrackerAppService',
+timeTrackerApp.controller('ReportsController', ['TimeTrackerAppService',
   function (TimeTrackerAppService) {
-    console.log('timeTrackerApp Controller Loaded')
+    console.log('reports Controller Loaded')
 
     let self = this;
 
     let timeTrackerAppService = TimeTrackerAppService;
 
     //Link view to service data
-    self.entry = timeTrackerAppService.entry;
+    self.reports = timeTrackerAppService.reports;
 
     //Link view function calls to functions in service
-    self.addEntry = timeTrackerAppService.addEntry;
-    self.getEntry = timeTrackerAppService.getEntry;
-    self.deleteEntry = timeTrackerAppService.deleteEntry;
-    self.addProject = timeTrackerAppService.addProject;
-    self.getProject = timeTrackerAppService.getProject;
-    self.deleteProject = timeTrackerAppService.deleteProject;
+  }]);
