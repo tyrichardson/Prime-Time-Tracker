@@ -29,4 +29,17 @@ router.post('/', (req, res) => {
     });
 });
 
+//DELETE entry
+router.delete('/:id', (req, res) => {
+  const entryId = req.query.id;
+  pool.delete('DELETE FROM "entries" WHERE "id" = $1;', [entryId])
+    .then((result) => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log('Router error making ship delete query', error);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;

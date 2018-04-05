@@ -29,4 +29,17 @@ router.post('/', (req, res) => {
     });
 });
 
+//DELETE project
+router.delete('/:id', (req, res) => {
+  const projectId = req.query.id;
+  pool.delete('DELETE FROM "projects" WHERE "projects_id" = $1;', [projectId])
+    .then((result) => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log('router error making project delete query', error);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;
