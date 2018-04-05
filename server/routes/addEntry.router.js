@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
       res.send(result.rows);
     })
     .catch((error) => {
-      console.log('Error in server GET', error);
+      console.log('Error in addEntryRouter GET', error);
       res.send(500);
     });
 });
@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
       res.sendStatus(201);
     })
     .catch((err) => {
-      console.log('Error in server POST', err);
+      console.log('Error in addEntryRouter POST', err);
       res.sendStatus(500);
     });
 });

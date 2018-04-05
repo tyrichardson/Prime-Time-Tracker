@@ -13,7 +13,7 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
 
   self.addEntry = { list: [] };
 
-  //self.sale = { list: [] };
+  self.addProject = { list: [] };
   
   //GET entry history
   self.getEntry = function () {
@@ -32,28 +32,28 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
       console.log('Entry Successfully Posted reported from client.js!');
       self.getEntry();
     }).catch(function (error) {
-      console.log('ERROR IN getEntry POST says client.js', error)
+      console.log('ERROR IN postEntry says client.js', error)
     });
   };
 
   //GET project history
-  self.getEntry = function () {
-    console.log('called getEntry function in client.js');
-    $http.get('/addEntry').then(function (response) {
-      console.log('getEntry response client.js', response);
-      self.addEntry.list = response.data;
+  self.getProject = function () {
+    console.log('called getProject function in client.js');
+    $http.get('/manageProjects').then(function (response) {
+      console.log('getProject response client.js', response);
+      self.addProject.list = response.data;
     })
   }
 
   //POST addProject
-  self.addEntry = function (entry) {
-    console.log('called addEntry post', entry)
+  self.addProject = function (entry) {
+    console.log('called addProject post', entry)
 
-    $http.post('/addEntry', entry).then(function (response) {
-      console.log('Entry Successfully Posted reported from client.js!');
-      self.getEntry();
+    $http.post('/manageProjects', entry).then(function (response) {
+      console.log('Project Successfully Posted reported from client.js!');
+      self.getProject();
     }).catch(function (error) {
-      console.log('ERROR IN getEntry POST says client.js', error)
+      console.log('ERROR IN addProject says client.js', error)
     });
   };
 
@@ -76,6 +76,8 @@ timeTrackerApp.controller('TimeTrackerAppController', ['TimeTrackerAppService',
     //Link view function calls to functions in service
     self.addEntry = timeTrackerAppService.addEntry;
     self.getEntry = timeTrackerAppService.getEntry;
+    self.addProject = timeTrackerAppService.addProject;
+    self.getProject = timeTrackerAppService.getProject;
 
     self.getEntry();
   }]);
