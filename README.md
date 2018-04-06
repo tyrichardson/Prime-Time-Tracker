@@ -1,10 +1,10 @@
 # Prime-Time-Tracker
 ###Project Management Tracking system--extended weekend solo project
 
-Add projects by name
+- [x] Add projects by name
 Track time to projects (task name, date, start time and end time)
 Display a history of all time entries
-Delete existing entries
+- [x] Delete existing entries
 Show total hours worked next to each project on the project page
 
 Database
@@ -22,6 +22,10 @@ Database
 );
 
 ALTER TABLE "entries" ADD COLUMN "projects_id" INT REFERENCES "projects";
+
+ALTER TABLE "entries" ADD COLUMN "projects_id" INT REFERENCES "projects";
+
+ALTER TABLE "projects" DROP COLUMN "total_hours";
 
 
 Stretch Goals

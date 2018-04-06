@@ -20,8 +20,8 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   console.log('entered POST in addEntry.router.js');
   const entry = req.body;
-  const queryText = "INSERT INTO entries (entry, date, hours) VALUES ($1, $2, $3);";
-  pool.query(queryText, [entry.entry, entry.date, entry.hours])
+  const queryText = `INSERT INTO "entries" (entry, date, hours, start_time, end_time) VALUES ($1, $2, $3, $4, $5);`;
+  pool.query(queryText, [entry.entry, entry.date, entry.hours, entry.start_time, entry.end_time])
     .then((result) => {
       res.sendStatus(201);
     })

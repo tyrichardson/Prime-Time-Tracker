@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
 router.delete('/:id', (req, res) => {
   console.log('entered DELETE in manageProjects.router.js', req.params);
   const projectId = req.params.id;
-  pool.query('DELETE FROM "projects" WHERE "id" = $1;', [projectId])
+  pool.query('DELETE FROM "projects" WHERE " id" = $1;', [projectId])
     .then(result => {
       res.sendStatus(200);
     })
