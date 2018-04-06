@@ -21,10 +21,10 @@
 
   <!-- Client Side -->
   <script src="scripts/client.js"></script>
-  <script src="scripts/timeTracker.service.js"></script>
-  <script src="scripts/addEntry.controller.js"></script>
-  <script src="scripts/manageProjects.controller.js"></script>
-  <script src="scripts/reports.controller.js"></script>
+  <script src="scripts/services/timeTracker.service.js"></script>
+  <script src="scripts/controllers/addEntry.controller.js"></script>
+  <script src="scripts/controllers/manageProjects.controller.js"></script>
+  <script src="scripts/controllers/reports.controller.js"></script>
 
   <!-- CSS -->
   <link rel="stylesheet" href="styles/styles.css">
@@ -34,10 +34,14 @@
 </head>
 
 <body ng-app="TimeTrackerApp">
+
+  Angular, are you there?
+  <br>
+  {{2===2}}
   
   <h1>Prime Time Tracker</h1>
   
-  <div ng-include=" ' /views/templates/nav.html' "></div>
+  <div ng-include=" '/views/templates/nav.html' "></div>
       
   <main ng-view>
 

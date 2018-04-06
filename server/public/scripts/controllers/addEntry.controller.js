@@ -1,5 +1,5 @@
 timeTrackerApp.controller('AddEntryController', ['TimeTrackerAppService',
-  function (AddEntryController) {
+  function (TimeTrackerAppService) {
     console.log('timeTrackerApp Controller Loaded');
 
     const self = this;

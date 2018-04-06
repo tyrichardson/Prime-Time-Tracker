@@ -1,8 +1,8 @@
-timeTrackerApp.controller('MangageProjectsController', ['TimeTrackerAppService',
+timeTrackerApp.controller('ManageProjectsController', ['TimeTrackerAppService',
   function (TimeTrackerAppService) {
     console.log('manageProjects Controller Loaded')
 
-    let self = this;
+    const self = this;
 
     let timeTrackerAppService = TimeTrackerAppService;
 

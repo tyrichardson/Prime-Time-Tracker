@@ -1,8 +1,7 @@
 //router out to database
-const router = express.Router();
 const pool = require('../modules/pool.js');
 let express = require('express');
-
+const router = express.Router();
 
 //GET history of entries
 router.get('/', (req, res) => {
@@ -34,14 +33,14 @@ router.post('/', (req, res) => {
 
 //DELETE entry
 router.delete('/:id', (req, res) => {
-  console.log('entered DELETE in addEntry.router.js');
+  console.log('entered DELETE in addEntry.router.js', req.params);
   const entryId = req.params.id;
-  pool.query('DELETE FROM "entries" WHERE "id" = $1;', [entryId])
-    .then((result) => {
+  pool.query('DELETE FROM "entries" WHERE "id" =$1;', [entryId])
+    .then(result => {
       res.sendStatus(200);
     })
-    .catch((error) => {
-      console.log('Router error making ship delete query', error);
+    .catch(error => {
+      console.log('Router error making entry delete query', error);
       res.sendStatus(500);
     });
 });

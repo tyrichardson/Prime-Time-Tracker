@@ -9,64 +9,91 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
 
   //GET entry history
   self.getEntry = function () {
-    console.log('called getEntry function in client.js');
-    $http.get('/addEntry').then(function (response) {
-      console.log('getEntry response client.js', response);
+    console.log('called getEntry function in service');
+    $http({
+      method: 'GET',
+      url:'/addEntry'
+    }).then((response) => {
+      console.log('getEntry response from service', response);
       self.addEntry.list = response.data;
     })
+    .catch((error) => {
+      console.log('getEntry error in service', error);
+    });
   }
 
   //GET project history
   self.getProject = function () {
-    console.log('called getProject function in client.js');
-    $http.get('/manageProjects').then(function (response) {
-      console.log('getProject response client.js', response);
+    console.log('called getProject function in service');
+    $http({
+      method: 'GET',
+      url:'/manageProjects'
+      }).then((response) => {
+      console.log('getProject response service', response);
       self.addProject.list = response.data;
     })
+    .catch((error) => {
+      console.log('getProject error in service', error);
+    });
   }
 
   //POST addEntry
   self.addEntry = function (entry) {
-    console.log('called addEntry post in client.js', entry);
-    $http.post('/addEntry', entry).then(function (response) {
-      console.log('Entry Successfully Posted reported from client.js!');
+    console.log('called addEntry POST in service', entry);
+    $http({
+      method: 'POST',
+      url:'/addEntry', 
+      data: entry
+    }).then((response) => {
+      console.log('Success addEntry POST from service', response);
       self.getEntry();
-    }).catch(function (error) {
-      console.log('ERROR returned to client.js', error)
+    })
+    .catch((error) => {
+      console.log('post addEntry error in service', error)
     });
-  };
+  }
 
   //POST addProject
   self.addProject = function (entry) {
-    console.log('called addProject post', entry)
-    $http.post('/manageProjects', entry).then(function (response) {
-      console.log('Project Successfully Posted reported from client.js!');
+    console.log('called addProject POST in service', entry);
+    $http({
+      method: 'POST',
+      url:'/manageProjects', 
+      data: entry
+    }).then((response) => {
+      console.log('Success addProject POST from service', response);
       self.getProject();
-    }).catch(function (error) {
-      console.log('ERROR returned to client.js', error)
+    })
+    .catch((error) => {
+      console.log('Post ERROR from addProject in service ', error)
     });
-  };
+  }
 
   //DELETE entry
   self.deleteEntry = function (entryId) {
-    console.log('called deleteEntry in client.js', entryId);
-    $http.delete('/addEntry', entryId).then(function (response) {
-      console.log('Entry deletion successful reported from client.js');
+    console.log('called deleteEntry in service', entryId);
+    $http({
+      method: 'DELETE',
+      url:`/addEntry/${entryId.id}`,
+    }).then((response) => {
+      console.log('Success deleteEntry in service', response);
       self.getEntry();
-    }).catch(function (error) {
-      console.log('error returned to client.js', error);
+    }).catch((error) => {
+      console.log('error deleteEntry in service', error);
     });
   }
-}])
 
 //DELETE project
 self.deleteProject = function (projectId) {
-  console.log('called deleteProject in client.js', projectId);
-  $http.delete('/manageProjects', projectId).then(function (response) {
-    console.log('Project deletion successful reported from client.js');
+  console.log('called deleteProject in service', projectId);
+  $http({
+    method: 'DELETE',
+    url:`/manageProjects/${projectId.id}`,
+  }).then((response) => {
+    console.log('Success deleteProject in service', response);
     self.getProject();
-  }).catch(function (error) {
-    console.log('ERROR returned to client.js', error);
+  }).catch((error) => {
+    console.log('ERROR deleteProject in service', error);
   });
 }
 

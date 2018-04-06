@@ -10,15 +10,15 @@ timeTrackerApp.config(['$routeProvider', function ($routeProvider) {
     })
     .when('/addEntry', {
       templateUrl: 'views/addEntry.html',
-      controller: 'addEntryController as vm'
+      controller: 'AddEntryController as vm'
     })
     .when('/manageProjects', {
       templateUrl: 'views/manageProjects.html',
-      controller: 'manageProjectsController as vm'
+      controller: 'ManageProjectsController as vm'
     })
     .when('/reports', {
       templateUrl: 'views/reports.html',
-      controller: 'reportsController as vm'
+      controller: 'ReportsController as vm'
     })
     .otherwise({ template: '<h1>404</h1>' });
 }]);
