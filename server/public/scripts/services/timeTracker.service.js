@@ -7,7 +7,7 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
 
   self.addProject = { list: [] };
 
-  //GET entry history
+  //GET getEntry populates entry history
   self.getEntry = function () {
     console.log('called getEntry function in service');
     $http({
@@ -22,7 +22,23 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
     });
   }
 
-  //GET project history
+  //POST addEntry adds task to list
+  self.addEntry = function (entry) {
+    console.log('called addEntry POST in service', entry);
+    $http({
+      method: 'POST',
+      url: '/addEntry',
+      data: entry
+    }).then((response) => {
+      console.log('Success addEntry POST from service', response);
+      self.getEntry();
+    })
+      .catch((error) => {
+        console.log('post addEntry error in service', error)
+      });
+  }
+
+  //GET getProject populates project history
   self.getProject = function () {
     console.log('called getProject function in service');
     $http({
@@ -37,23 +53,7 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
     });
   }
 
-  //POST addEntry
-  self.addEntry = function (entry) {
-    console.log('called addEntry POST in service', entry);
-    $http({
-      method: 'POST',
-      url:'/addEntry', 
-      data: entry
-    }).then((response) => {
-      console.log('Success addEntry POST from service', response);
-      self.getEntry();
-    })
-    .catch((error) => {
-      console.log('post addEntry error in service', error)
-    });
-  }
-
-  //POST addProject
+  //POST addProject adds new project to db
   self.addProject = function (entry) {
     console.log('called addProject POST in service', entry);
     $http({
@@ -69,7 +69,7 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
     });
   }
 
-  //DELETE entry
+  //DELETE deleteEntry from task list
   self.deleteEntry = function (entryId) {
     console.log('called deleteEntry in service', entryId);
     $http({
@@ -83,7 +83,7 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
     });
   }
 
-//DELETE project
+//DELETE deleteProject from project list
 self.deleteProject = function (projectId) {
   console.log('called deleteProject in service', projectId);
   $http({
