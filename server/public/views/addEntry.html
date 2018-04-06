@@ -4,7 +4,7 @@
 <div class="addEntry">
   <input type="text" id="addEntry" ng-model="vm.newEntry.entry" placeholder="Task I burned hours against"></input>
   <br>
-
+  
 <select ng-model="vm.newEntry.projects_id">
   <!-- not selected / blank option -->
   <option value="">---Please select---</option>
@@ -22,7 +22,6 @@
   <button ng-click="vm.addEntry(vm.newEntry)">Submit</button>
 </div>
 
-<br>
 <!-- the GET -->
 <h3>History </h3>
 <div class="getEntry">
