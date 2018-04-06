@@ -4,12 +4,20 @@
 <div class="addEntry">
   <input type="text" id="addEntry" ng-model="vm.newEntry.entry" placeholder="Task I burned hours against"></input>
   <br>
+
+<select ng-model="vm.newEntry.projects_id">
+  <!-- not selected / blank option -->
+  <option value="">---Please select---</option>
+  <!-- repeat over projects -->
+  <option ng-repeat="project in vm.addProject.list" value="{{project.id}}">{{project.project_name}}</option>
+</select>
+
   <input type="date" ng-model="vm.newEntry.date" placeholder="Date"></input>
 
   <input type="time" ng-model="vm.newEntry.start_time" placeholder="Start time"></input>
   <input type="time" ng-model="vm.newEntry.end_time" placeholder="End time"></input>
 
-  <!-- <input type="number" ng-model="vm.newEntry.hours" placeholder="Total hours"></input> -->
+  <input type="number" ng-model="vm.newEntry.hours" placeholder="Hours (do the math)"></input>
 
   <button ng-click="vm.addEntry(vm.newEntry)">Submit</button>
 </div>
@@ -22,16 +30,18 @@
     <thead>
       <tr>
         <th>Entry</th>
+        <th>Project</th>
         <th>Date</th>
         <th>Start time</th>
         <th>End time</th>
-        <th>Hours</th>
+        <th>Hours Burned</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody ng-repeat="entry in vm.addEntry.list">
       <tr>
         <td>{{entry.entry}}</td>
+        <td>{{entry.project_name}}</td>
 
         <td>{{entry.date | date:'MM-dd-yyyy'}}</td>
 

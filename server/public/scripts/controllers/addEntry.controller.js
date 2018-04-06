@@ -8,7 +8,7 @@ timeTrackerApp.controller('AddEntryController', ['TimeTrackerAppService',
 
     //Link view to service data
     self.entry = timeTrackerAppService.entry;
-    self.projects_id = timeTrackerAppService.projects_id;
+    self.addProject = timeTrackerAppService.addProject;
 
     //Link view function calls to functions in service
     self.addEntry = timeTrackerAppService.addEntry;

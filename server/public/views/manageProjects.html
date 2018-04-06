@@ -15,12 +15,14 @@
       <thead>
         <tr>
           <th>Project</th>
+          <th>Hours Burned</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody ng-repeat="project in vm.addProject.list">
         <tr>
           <td>{{project.project_name}}</td>
+          <td>{{entry.hours}}</td>
           <td>
             <button ng-click='vm.deleteProject(project)'>Delete</button>
           </td>
