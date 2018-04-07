@@ -27,6 +27,8 @@ ALTER TABLE "entries" ADD COLUMN "projects_id" INT REFERENCES "projects";
 
 ALTER TABLE "projects" DROP COLUMN "total_hours";
 
+- [x] Create branch
+
 
 Stretch Goals
 Angular Material for design

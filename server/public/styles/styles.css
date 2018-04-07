@@ -2,6 +2,63 @@ body {
   background-color: aliceblue
 }
 
+.indexDiv {
+  padding: 0px;
+  margin: 0px;
+}
+
+main {
+  padding: 20px;
+}
+
+input, select, option {
+  padding: 2px;
+  margin: 2px;
+}
+
+h1 {
+  padding: 20px;
+}
+
 #addEntry {
   width: 400px;
+}
+
+table {
+  table-layout: auto;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+tr:hover {
+  background-color: thistle;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(255, 241, 185);
+  color: thistle;
+}
+
+a.button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+  width: 50%;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 3px;
+}
+
+ul {
+  list-style-type: none
 }
