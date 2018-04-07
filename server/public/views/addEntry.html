@@ -1,10 +1,11 @@
 <div class="container">
 <h3>Add Entry</h3>
+
 <!-- the POST -->
 <div class="addEntry">
   <input type="text" id="addEntry" ng-model="vm.newEntry.entry" placeholder="Task I burned hours against"></input>
   <br>
-  
+
 <select ng-model="vm.newEntry.projects_id">
   <!-- not selected / blank option -->
   <option value="">---Please select---</option>
@@ -39,18 +40,18 @@
     </thead>
     <tbody ng-repeat="entry in vm.addEntry.list">
       <tr>
-        <td>{{entry.entry}}</td>
-        <td>{{entry.project_name}}</td>
+        <td>{{entry.e_name}}</td>
+        <td>{{entry.p_name}}</td> <!-- need projects.project_name to display -->
 
-        <td>{{entry.date | date:'MM-dd-yyyy'}}</td>
+        <td>{{entry.e_date | date:'MM-dd-yyyy'}}</td>
 
-        <td>{{entry.start_time | date: 'h:mma'}}</td>
-        <td>{{entry.end_time | date: 'h:mma'}}</td>
+        <td>{{entry.e_start_time | date: 'h:mma'}}</td>
+        <td>{{entry.e_end_time | date: 'h:mma'}}</td>
 
-        <td>{{entry.hours}}</td>
+        <td>{{entry.e_hours}}</td>
 
         <td>
-          <button ng-click='vm.deleteEntry(entry)'>Delete</button>
+          <button ng-click='vm.deleteEntry(entry.e_id)'>Delete</button>
         </td>
       </tr>
     </tbody>

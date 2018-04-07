@@ -77,6 +77,7 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
       url:`/addEntry/${entryId.id}`,
     }).then((response) => {
       console.log('Success deleteEntry in service', response);
+      alert('Entries cannot be deleted');
       self.getEntry();
     }).catch((error) => {
       console.log('error deleteEntry in service', error);
