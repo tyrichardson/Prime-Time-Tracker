@@ -77,10 +77,10 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
       url:`/addEntry/${entryId.e_id}`,
     }).then((response) => {
       console.log('Success deleteEntry in service', response);
-      alert('Entries cannot be deleted');
       self.getEntry();
     }).catch((error) => {
       console.log('error deleteEntry in service', error);
+      alert('At this time, entries against existing projects cannot be deleted');
     });
   }
 
@@ -95,6 +95,7 @@ self.deleteProject = function (projectId) {
     self.getProject();
   }).catch((error) => {
     console.log('ERROR deleteProject in service', error);
+    alert('At this time, projects with hours burned against them cannot be deleted');
   });
 }
 

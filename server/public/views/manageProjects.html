@@ -1,5 +1,6 @@
 <div class="container">
   <h3>Add Project</h3>
+
   <!-- the POST -->
   <div class="addProject">
     <input type="text" ng-model="vm.newProject.project_name" placeholder="Project name"></input>
@@ -19,8 +20,8 @@
       </thead>
       <tbody ng-repeat="project in vm.addProject.list">
         <tr>
-          <td>{{project.project_name}}</td>
-          <td>{{entry.hours}}</td>
+          <td>{{project.p_name}}</td>
+          <td>{{e.e_hours}}</td>
           <td>
             <button ng-click='vm.deleteProject(project)'>Delete</button>
           </td>

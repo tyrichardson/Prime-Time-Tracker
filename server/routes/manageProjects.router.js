@@ -6,7 +6,7 @@ const router = express.Router();
 //GET history of projects
 router.get('/', (req, res) => {
   console.log('entered GET entry history in manageProjects.router.js');
-  let queryText = "SELECT * FROM projects;";
+  let queryText = `SELECT "p"."id" as "p_id", "p"."project_name" as "p_name", "e"."id" as "e_id", "e"."project_id" as "e_project_id", "e"."hours" as "e_hours" FROM "projects" as "p" JOIN "entries" as "e" ON "p"."id" = "e"."project_id";`;
   pool.query(queryText)
     .then(result => {
       res.send(result.rows);
