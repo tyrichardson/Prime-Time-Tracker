@@ -21,7 +21,7 @@
       <tbody ng-repeat="project in vm.addProject.list">
         <tr>
           <td>{{project.p_name}}</td>
-          <td>{{e.e_hours}}</td>
+          <td>{{project.sum}}</td>
           <td>
             <button ng-click='vm.deleteProject(project)'>Delete</button>
           </td>

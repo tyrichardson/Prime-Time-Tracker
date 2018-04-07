@@ -14,4 +14,5 @@ timeTrackerApp.controller('ManageProjectsController', ['TimeTrackerAppService',
     self.addProject = timeTrackerAppService.addProject;
     self.getProject = timeTrackerAppService.getProject;
     self.deleteProject = timeTrackerAppService.deleteProject;
+
   }]);

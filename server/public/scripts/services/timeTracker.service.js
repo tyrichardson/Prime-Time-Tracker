@@ -9,7 +9,7 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
 
   //GET getEntry populates entry history
   self.getEntry = function () {
-    console.log('called getEntry function in service');
+    console.log('called getEntry function in service');   
     $http({
       method: 'GET',
       url:'/addEntry'
@@ -32,6 +32,7 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
     }).then((response) => {
       console.log('Success addEntry POST from service', response);
       self.getEntry();
+      self.getProject();
     })
       .catch((error) => {
         console.log('post addEntry error in service', error)
@@ -78,6 +79,7 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
     }).then((response) => {
       console.log('Success deleteEntry in service', response);
       self.getEntry();
+      self.getProject();
     }).catch((error) => {
       console.log('error deleteEntry in service', error);
       alert('At this time, entries against existing projects cannot be deleted');
