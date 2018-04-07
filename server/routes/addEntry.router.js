@@ -6,7 +6,7 @@ const router = express.Router();
 //GET entry history
 router.get('/', (req, res) => {
   console.log('entered GET entry history in addEntry.router.js');
-  pool.query(`SELECT "entries"."id" as "e_id", "entries"."entry" as "e_name", "entries"."date" as "e_date", "entries"."hours" as "e_hours", "entries"."start_time" as "e_start_time", "entries"."end_time" as "e_end_time", "entries"."project_id" as "e_project_id", "projects"."id" as "p_id", "projects"."project_name" as "p_name" FROM "entries" JOIN "projects" ON "entries"."project_id"="projects"."id";`)
+  pool.query(`SELECT "e"."id" as "e_id", "e"."entry" as "e_name", "e"."date" as "e_date", "e"."hours" as "e_hours", "e"."start_time" as "e_start_time", "e"."end_time" as "e_end_time", "e"."project_id" as "e_project_id", "p"."id" as "p_id", "p"."project_name" as "p_name" FROM "entries" as "e" JOIN "projects" as "p" ON "e"."project_id"="p"."id";`)
     .then(result => {
       res.send(result.rows);
     })
