@@ -9,7 +9,7 @@
   <!-- not selected / blank option -->
   <option value="">---Please select---</option>
   <!-- repeat over projects -->
-  <option ng-repeat="project in vm.addProject.list" value="{{project.p_id}}">{{project.p_name}}</option>
+  <option ng-repeat="project in vm.addProject.list" value="{{project.id}}">{{project.project_name}}</option>
 </select>
 
   <input type="date" ng-model="vm.newEntry.date" placeholder="Date"></input>
