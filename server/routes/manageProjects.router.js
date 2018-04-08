@@ -6,7 +6,7 @@ const router = express.Router();
 //GET history of projects
 router.get('/', (req, res) => {
   console.log('entered GET entry history in manageProjects.router.js');
-  let queryText = `SELECT "p"."id" as "p_id", "p"."project_name" as "p_name", SUM("hours") as sum FROM "projects" as "p" JOIN "entries" as "e" ON "p"."id" = "e"."project_id" GROUP BY "p_id", "p_name";`;
+  let queryText = ` SELECT SUM(COALESCE("hours",0)) as sum, "projects"."project_name"  FROM "projects" LEFT JOIN "entries" ON "projects"."id" = "entries"."project_id" GROUP BY "projects"."id", "projects"."project_name";`;
   pool.query(queryText)
     .then(result => {
       res.send(result.rows);

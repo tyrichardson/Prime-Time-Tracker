@@ -39,7 +39,7 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
       });
   }
 
-  //GET getProject populates project history
+  //GET getProject populates project name
   self.getProject = function () {
     console.log('called getProject function in service');
     $http({
@@ -103,5 +103,6 @@ self.deleteProject = function (projectId) {
 
 self.getEntry();
 self.getProject();
+self.getProjectTotalHours();
 
 }]);
