@@ -1,12 +1,11 @@
 <div class="container">
-<h3>Add Entry</h3>
-
+<h2>Add Entry</h2>
 <!-- the POST -->
 <div class="addEntry">
   <input type="text" id="addEntry" ng-model="vm.newEntry.entry" placeholder="Task I burned hours against"></input>
   <br>
 
-<select ng-model="vm.newEntry.projects_id">
+<select ng-model="vm.newEntry.project_id">
   <!-- not selected / blank option -->
   <option value="">---Please select---</option>
   <!-- repeat over projects -->
@@ -50,9 +49,7 @@
 
         <td>{{entry.e_hours}}</td>
 
-        <td>
-          <button ng-click='vm.deleteEntry(entry.e_id)'>Delete</button>
-        </td>
+        <td><button ng-click='vm.deleteEntry(entry.e_id)'>Delete</button></td>
       </tr>
     </tbody>
   </table>

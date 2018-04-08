@@ -6,9 +6,11 @@ const router = express.Router();
 //GET history of projects
 router.get('/', (req, res) => {
   console.log('entered GET entry history in manageProjects.router.js');
-  let queryText = `SELECT "p"."id" as "p_id", "p"."project_name" as "p_name", "e"."id" as "e_id", "e"."project_id" as "e_project_id", "e"."hours" as "e_hours" FROM "projects" as "p" JOIN "entries" as "e" ON "p"."id" = "e"."project_id";`;
+  let queryText = ` SELECT SUM(COALESCE("hours",0)) as sum, "projects"."project_name", "projects"."id" FROM "projects" LEFT JOIN "entries" ON "projects"."id" = "entries"."project_id" GROUP BY "projects"."id", "projects"."project_name";`;
+  console.log("Kam's Magic Query results as queryText:", queryText)
   pool.query(queryText)
     .then(result => {
+      console.log("result from get history of projects route:", result.rows);
       res.send(result.rows);
     })
     .catch(error => {
