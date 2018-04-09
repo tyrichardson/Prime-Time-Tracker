@@ -31,19 +31,20 @@
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-
-<body ng-app="TimeTrackerApp">
-
-  <!-- Angular, are you there?
-  <br>
-  {{2===2}} -->
   
-  <h1>Prime Time Tracker</h1>
+  </head>
+  
+  <body ng-app="TimeTrackerApp" ng-cloak>
+
+  <!-- Angular, are you there? <br> {{2===2}} -->
+  
+  <h1 flex>Prime Time Tracker</h1>
   
   <div ng-include=" '/views/templates/nav.html' " class="indexDiv"></div>
       
-  <main ng-view>
+  <main ng-view flex layout="row">
+
+    <!-- nav.html: addEntry.html, manageProjects.html, reports.html -->
 
   </main>
 

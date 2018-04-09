@@ -48,10 +48,10 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
       }).then((response) => {
       console.log('getProject response service', response);
       self.addProject.list = response.data;
-      console.log('LOOK getProject in service vm.addProject.list =  response.data', response.data);
+      console.log('getProject in service vm.addProject.list =  response.data', response.data);
     })
     .catch((error) => {
-      console.log('LOOK getProject error in service', error);
+      console.log('getProject error in service', error);
     });
   }
 

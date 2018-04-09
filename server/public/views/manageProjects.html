@@ -1,10 +1,10 @@
 <div class="container">
   <h2>Add Project</h2>
-
   <!-- the POST -->
   <div class="addProject">
-    <input type="text" ng-model="vm.newProject.project_name" placeholder="Project name"></input>
-    <button ng-click="vm.addProject(vm.newProject)">Submit</button>
+    <input flex type="text" id="projectName" ng-model="vm.newProject.project_name" placeholder="Project name"></input>
+
+    <md-button flex class="md-raised md-primary" ng-click="vm.addProject(vm.newProject)">Submit</md-button>
   </div>
   
   <!-- the GET -->
@@ -23,7 +23,7 @@
           <td>{{project.project_name}}</td>
           <td>{{project.sum}}</td>
           <td>
-            <button ng-click='vm.deleteProject(project)'>Delete</button>
+            <md-button class="md-raised md-warn" ng-click='vm.deleteProject(project)'>Delete</md-button>
           </td>
         </tr>
       </tbody>
