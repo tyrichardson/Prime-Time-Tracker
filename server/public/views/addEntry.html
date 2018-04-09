@@ -2,24 +2,27 @@
 <h2>Add Entry</h2>
 <!-- the POST -->
 <div class="addEntry">
-  <input type="text" id="addEntry" ng-model="vm.newEntry.entry" placeholder="Task I burned hours against"></input>
-  <br>
+  <input flex type="text" id="addEntry" ng-model="vm.newEntry.entry" placeholder="Task I burned hours against" required></input>
 
-<select ng-model="vm.newEntry.project_id">
+<select flex ng-model="vm.newEntry.project_id">
   <!-- not selected / blank option -->
-  <option value="">---Please select---</option>
+  <option value="">---Select Project---</option>
   <!-- repeat over projects -->
   <option ng-repeat="project in vm.addProject.list" value="{{project.id}}">{{project.project_name}}</option>
 </select>
 
-  <input type="date" ng-model="vm.newEntry.date" placeholder="Date"></input>
+<br>
 
-  <input type="time" ng-model="vm.newEntry.start_time" placeholder="Start time"></input>
-  <input type="time" ng-model="vm.newEntry.end_time" placeholder="End time"></input>
+  <input flex type="date" ng-model="vm.newEntry.date" placeholder="Date" required></input>
 
-  <input type="number" ng-model="vm.newEntry.hours" placeholder="Hours (do the math)"></input>
+  <!-- <md-datepicker ng-model="vm.newEntry.date" md-placeholder="Enter date"></md-datepicker> -->
 
-  <button ng-click="vm.addEntry(vm.newEntry)">Submit</button>
+  <input flex type="time" ng-model="vm.newEntry.start_time" placeholder="Start time" required></input>
+  <input flex type="time" ng-model="vm.newEntry.end_time" placeholder="End time" required></input>
+
+  <input flex type="number" ng-model="vm.newEntry.hours" placeholder="Hours (do the math)" required></input>
+
+  <md-button flex class="md-raised md-primary" ng-click="vm.addEntry(vm.newEntry)">Submit</md-button>
 </div>
 
 <!-- the GET -->
@@ -49,7 +52,7 @@
 
         <td>{{entry.e_hours}}</td>
 
-        <td><button ng-click='vm.deleteEntry(entry.e_id)'>Delete</button></td>
+        <td><md-button class="md-raised md-warn" ng-click='vm.deleteEntry(entry.e_id)'>Delete</md-button></td>
       </tr>
     </tbody>
   </table>
