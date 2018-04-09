@@ -8,6 +8,9 @@ timeTrackerApp.controller('ReportsController', ['TimeTrackerAppService',
 
     //Link view to service data
     self.reports = timeTrackerAppService.reports;
+    //self.ctx = timeTrackerAppService.ctx;
 
     //Link view function calls to functions in service
+    //self.myChart = timeTrackerAppService.myChart;
+
   }]);
