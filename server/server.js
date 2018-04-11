@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 
 const addEntryRouter = require('./routes/addEntry.router.js');
 const manageProjectsRouter = require('./routes/manageProjects.router.js');
-const reportsRouter = require('./routes/reports.router.js');
 
 let port = process.env.PORT || 5000;
 
@@ -14,7 +13,6 @@ app.use(bodyParser.json());
 
 app.use('/addEntry', addEntryRouter);
 app.use('/manageProjects', manageProjectsRouter);
-app.use('/reports', reportsRouter);
 
 
 app.use(express.static('server/public'));

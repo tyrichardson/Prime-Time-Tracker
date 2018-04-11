@@ -13,7 +13,6 @@ timeTrackerApp.controller('AddEntryController', ['TimeTrackerAppService',
 
     //Link view function calls to functions in service
     self.addEntry = timeTrackerAppService.addEntry;
-    self.editEntry = timeTrackerAppService.editEntry;
     self.getEntry = timeTrackerAppService.getEntry;
     self.deleteEntry = timeTrackerAppService.deleteEntry;
   }]);
