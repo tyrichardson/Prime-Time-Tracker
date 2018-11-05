@@ -75,7 +75,7 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
     console.log('called deleteEntry in service', entryId);
     $http({
       method: 'DELETE',
-      url:`/addEntry/${entryId.e_id}`,
+      url:`/addEntry/${entryId}`,
     }).then((response) => {
       console.log('Success deleteEntry in service', response);
       self.getEntry();
