@@ -11,8 +11,8 @@ timeTrackerApp.controller('ReportsController', ['TimeTrackerAppService',
   self.addProject = timeTrackerAppService.addProject;
 
 
-  let projectNames = ["w", "x", "y", "z"];
-  let projectTimeSums = [10, 20, 30, 40];
+  let projectNames = ["w", "x", "y"];
+  let projectTimeSums = [1.5, 4.5, 6];
 
 
   let ctx = angular.element(document.querySelector('#myChart'));
