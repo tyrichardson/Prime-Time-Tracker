@@ -45,12 +45,12 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
       method: 'GET',
       url:'/manageProjects'
       }).then((response) => {
-      console.log('getProject response service', response);
+      console.log('getProject response timeTrackerService', response);
       self.addProject.list = response.data;
-      console.log('getProject in service vm.addProject.list =  response.data', response.data);
+      console.log('getProject in timeTrackerService vm.addProject.list =  response.data', response.data);
     })
     .catch((error) => {
-      console.log('getProject error in service', error);
+      console.log('getProject error in timeTrackerService', error);
     });
   }
 

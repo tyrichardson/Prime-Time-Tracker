@@ -14,7 +14,6 @@ app.use(bodyParser.json());
 app.use('/addEntry', addEntryRouter);
 app.use('/manageProjects', manageProjectsRouter);
 
-
 app.use(express.static('server/public'));
 
 app.listen(port, () => {

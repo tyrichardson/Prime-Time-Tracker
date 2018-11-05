@@ -1,4 +1,4 @@
-const timeTrackerApp = angular.module('TimeTrackerApp', ['ngRoute', 'ngMaterial'])
+const timeTrackerApp = angular.module('TimeTrackerApp', ['ngRoute', 'ngMaterial', 'chart.js'])
 .config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
   .primaryPalette('indigo')

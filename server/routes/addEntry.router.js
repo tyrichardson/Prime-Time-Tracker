@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   console.log('entered GET entry history in addEntry.router.js');
   pool.query(`SELECT "e"."id" as "e_id", "e"."entry" as "e_name", "e"."date" as "e_date", "e"."hours" as "e_hours", "e"."start_time" as "e_start_time", "e"."end_time" as "e_end_time", "e"."project_id" as "e_project_id", "p"."id" as "p_id", "p"."project_name" as "p_name" FROM "entries" as "e" JOIN "projects" as "p" ON "e"."project_id"="p"."id";`)
     .then(result => {
-      console.log("result.rows of get entry history from router");
+      console.log("result.rows of get entry history from backend addEntry router");
       res.send(result.rows);
     })
     .catch(error => {

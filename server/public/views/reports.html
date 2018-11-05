@@ -1,4 +1,24 @@
-<h3>A report using Chart.js is a stretch goal for this project.</h3>
 
+<div class="container">
+
+    <h3>A report using angular-chart.js.</h3>
+
+    <p>vm.addProject.list = {{vm.addProject.list}}</p>
+    <p>vm.addProject.list[0] = {{vm.addProject.list[0]}}</p>
+    <p>vm.addProject.list[0].project_name = {{vm.addProject.list[0].project_name}}</p>
+   
+    <div ng-repeat="project in vm.addProject.list">
+        project in vm.addProject.list
+        <p>project = {{project}}</p>
+        <p>project.project_name = {{project.project_name}}</p>
+        <p>project.sum = {{project.sum}}</p>
+
+    </div>
+
+    <div>
+        <canvas id="myChart" class="chart chart-bar" chart-data="data" chart-labels="labels"> chart-series="series"
+        </canvas>
+     </div>
+</div>
 
 

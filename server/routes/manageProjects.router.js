@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
   console.log("Kam's Magic Query results as queryText:", queryText)
   pool.query(queryText)
     .then(result => {
-      console.log("result from get history of projects route:", result.rows);
+      console.log("result from get history of manageProjects backend route:", result.rows);
       res.send(result.rows);
     })
     .catch(error => {
