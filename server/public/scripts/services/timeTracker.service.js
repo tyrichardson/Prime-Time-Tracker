@@ -3,9 +3,9 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
 
   let self = this;
 
-  self.resEntry = { list: [] };
+  self.addEntry = { list: [] };
 
-  self.resProject = { list: [] };
+  self.addProject = { list: [] };
 
   self.reportData;
 
@@ -26,7 +26,7 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
       url:'/addEntry'
     }).then((response) => {
       console.log('getEntry response from service', response);
-      self.resEntry.list = response.data;
+      self.addEntry.list = response.data;
     })
     .catch((error) => {
       console.log('getEntry error in service', error);
@@ -58,9 +58,12 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
       url:'/manageProjects'
       }).then((response) => {
       console.log('getProject response timeTrackerService', response);
-      self.resProject.list = response.data;
-      self.reportData = response.data;
+      self.addProject.list = response.data;
       console.log('getProject in timeTrackerService vm.resProject.list =  response.data', response.data);
+      
+        //angular-chart.js
+
+      self.reportData = response.data;
       console.log('reportData', self.reportData);
       reportNames = self.reportData.map(names => names.project_name);
       console.log('reportNames array', reportNames);
@@ -105,11 +108,11 @@ timeTrackerApp.service('TimeTrackerAppService', ['$http', function ($http) {
           }
         }
       });
-
     })
     .catch((error) => {
       console.log('getProject error in timeTrackerService', error);
     });
+   
   }
 
   //POST addProject adds new project to db
@@ -158,6 +161,8 @@ self.deleteProject = function (projectId) {
     alert('At this time, projects with hours burned against them cannot be deleted');
   });
 }
+
+
 
 self.getEntry();
 self.getProject();

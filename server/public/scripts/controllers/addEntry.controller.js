@@ -7,7 +7,7 @@ timeTrackerApp.controller('AddEntryController', ['TimeTrackerAppService',
     let timeTrackerAppService = TimeTrackerAppService;
 
     //Link view to service data
-    self.entry = timeTrackerAppService.entry;
+    //self.entry = timeTrackerAppService.entry;
     self.addProject = timeTrackerAppService.addProject;
 
 

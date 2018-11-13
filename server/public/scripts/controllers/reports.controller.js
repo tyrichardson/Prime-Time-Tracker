@@ -8,9 +8,13 @@ timeTrackerApp.controller('ReportsController', ['TimeTrackerAppService',
 
   //Link view to service data
 
-  self.resProject = timeTrackerAppService.resProject;
+ self.getProject = timeTrackerAppService.getProject;
 
-  self.reportData = timeTrackerAppService.reportData;
+ self.getProject();
+
+  //self.resProject = timeTrackerAppService.resProject;
+
+  //self.reportData = timeTrackerAppService.reportData;
 
   self.reportNames = timeTrackerAppService.reportNames;
 
@@ -19,7 +23,6 @@ timeTrackerApp.controller('ReportsController', ['TimeTrackerAppService',
   self.ctx = timeTrackerAppService.ctx;
 
   self.myChart = timeTrackerAppService.myChart;
-
   
 }]);
 
