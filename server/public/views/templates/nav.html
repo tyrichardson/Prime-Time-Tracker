@@ -1,9 +1,9 @@
-<nav class="nav" layout="row" layout-align="center">
- 
-      <a flex="30" ng-href="#!/addEntry" class="button">Enter Tasks</a>
-  
-      <a flex="30" ng-href="#!/manageProjects" class="button">Manage Projects</a>
-    
-      <a flex="30" ng-href="#!/reports" class="button" >Generate Reports</a>
- 
-</nav> 
+<md-nav-bar aria-label="nav bar">
+  <ul layout="row" layout-align="space-around space-around">
+    <li class="md-padding"><a ng-href="#!/addEntry" class="button">Enter Tasks</a></li>
+    <li class="md-padding"><a ng-href="#!/manageProjects" class="button">Manage Projects</a></li>
+    <li class="md-padding">
+      <a ng-href="#!/reports" class="button">Generate Reports</a>
+    </li>
+  </ul>
+</md-nav-bar>

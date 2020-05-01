@@ -1,15 +1,9 @@
-const timeTrackerApp = angular.module('TimeTrackerApp', ['ngRoute', 'ngMaterial', 'chart.js'])
-.config(function($mdThemingProvider) {
-  $mdThemingProvider.theme('default')
-  .primaryPalette('indigo')
-  .accentPalette('pink');
-});
+const timeTrackerApp = angular.module('TimeTrackerApp', ['ngRoute', 'ngMaterial', 'chart.js']);
 
-timeTrackerApp.config(['$routeProvider', function ($routeProvider) {
+timeTrackerApp.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $mdThemingProvider) {
   console.log('route config in client.js loaded');
-  let self = this;
 
-  //using nav.html, determines which content to display on DOM  
+  //using nav.html, determines which content to display on DOM
   $routeProvider
     .when('/', {
       redirectTo: '/addEntry'
@@ -27,4 +21,11 @@ timeTrackerApp.config(['$routeProvider', function ($routeProvider) {
       controller: 'ReportsController as vm'
     })
     .otherwise({ template: '<h1>404</h1>' });
+
+  $mdThemingProvider.theme('default')
+    .primaryPalette('blue')
+    .accentPalette('teal')
+    .warnPalette('pink')
+    .backgroundPalette('blue-grey');
+
 }]);

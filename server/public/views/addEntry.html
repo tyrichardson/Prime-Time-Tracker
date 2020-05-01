@@ -1,61 +1,58 @@
-<div class="container">
-<h2>Add Tasks</h2>
+<h3>Add Tasks</h3>
 <!-- the POST -->
-<div class="addEntry">
-  <input flex type="text" id="addEntry" ng-model="vm.newEntry.entry" placeholder="Task I burned hours against" required></input>
 
-<select flex ng-model="vm.newEntry.project_id">
-  <!-- not selected / blank option -->
-  <option value="">---Select Project---</option>
-  <!-- repeat over projects -->
-  <option ng-repeat="project in vm.addProject.list" value="{{project.id}}">{{project.project_name}}</option>
-</select>
+  <md-input-container  layout="row">
+    <input type="text" id="addEntry" ng-model="vm.newEntry.entry" placeholder="type brief task description" required>
+    </input>
+  </md-input-container>
 
-<br>
+  <div layout="row" layout-align="space-around bottom">
+    <md-input-container>
+      <md-select ng-model="vm.newEntry.project_id" placeholder="select project" required>
+        <md-option value=""><em>*selection required*</em></md-option>
+        <md-option ng-repeat="project in vm.project.list" value="{{project.id}}">{{project.project_name}}
+        </md-option>
+      </md-select>
+    </md-input-container>
 
-  <input flex type="date" ng-model="vm.newEntry.date" placeholder="Date" required></input>
+    <md-input-container>
+      <md-datepicker ng-model="vm.newEntry.date" md-placeholder="select date" required>
+      </md-datepicker>
+    </md-input-container>
 
-  <!-- <md-datepicker ng-model="vm.newEntry.date" md-placeholder="Enter date"></md-datepicker> -->
+    <md-input-container>
+      <input type="number" step=".25" ng-model="vm.newEntry.hours" placeholder="time burned" required>
+      </input>
+    </md-input-container>
 
-  <input flex type="time" ng-model="vm.newEntry.start_time" placeholder="Start time" required></input>
-  <input flex type="time" ng-model="vm.newEntry.end_time" placeholder="End time" required></input>
-
-  <input flex type="number" ng-model="vm.newEntry.hours" placeholder="Hours (do the math)" required></input>
-
-  <md-button flex class="md-raised md-primary" ng-click="vm.addEntry(vm.newEntry)">Submit</md-button>
-</div>
+    <md-button type="button" class="md-primary" ng-click="vm.addEntry(vm.newEntry)">submit</md-button>
+  </div>
 
 <!-- the GET -->
-<h3>History </h3>
-<div class="getEntry">
+<h3>History by date</h3>
+
   <table>
     <thead>
       <tr>
         <th>Entry</th>
         <th>Project</th>
         <th>Date</th>
-        <th>Start time</th>
-        <th>End time</th>
         <th>Hours Burned</th>
-        <th>Actions</th>
+        <th>Delete</th>
       </tr>
     </thead>
-    <tbody ng-repeat="entry in vm.addEntry.list">
+    <tbody ng-repeat="entry in vm.entry.list">
       <tr>
         <td>{{entry.e_name}}</td>
         <td>{{entry.p_name}}</td> <!-- need projects.project_name to display -->
 
         <td>{{entry.e_date | date:'MM-dd-yyyy'}}</td>
 
-        <td>{{entry.e_start_time | date: 'h:mma'}}</td>
-        <td>{{entry.e_end_time | date: 'h:mma'}}</td>
-
         <td>{{entry.e_hours}}</td>
 
-        <td><md-button class="md-raised md-warn" ng-click='vm.deleteEntry(entry.e_id)'>Delete</md-button></td>
+        <td>
+          <md-button class="md-warn md-hue-2" ng-click='vm.deleteEntry(entry.e_id)'>Delete</md-button>
+        </td>
       </tr>
     </tbody>
   </table>
-</div>
-
-</div>

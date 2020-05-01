@@ -6,7 +6,7 @@ const router = express.Router();
 //GET entry history
 router.get('/', (req, res) => {
   console.log('entered GET entry history in addEntry.router.js');
-  pool.query(`SELECT "e"."id" as "e_id", "e"."entry" as "e_name", "e"."date" as "e_date", "e"."hours" as "e_hours", "e"."start_time" as "e_start_time", "e"."end_time" as "e_end_time", "e"."project_id" as "e_project_id", "p"."id" as "p_id", "p"."project_name" as "p_name" FROM "entries" as "e" JOIN "projects" as "p" ON "e"."project_id"="p"."id";`)
+  pool.query(`SELECT "e"."id" as "e_id", "e"."entry" as "e_name", "e"."date" as "e_date", "e"."hours" as "e_hours", "e"."project_id" as "e_project_id", "p"."id" as "p_id", "p"."project_name" as "p_name" FROM "entries" as "e" JOIN "projects" as "p" ON "e"."project_id"="p"."id";`)
     .then(result => {
       console.log("result.rows of get entry history from backend addEntry router");
       res.send(result.rows);
@@ -21,8 +21,8 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   console.log('entered POST in addEntry.router.js');
   const entry = req.body;
-  const queryText = `INSERT INTO "entries" (entry, project_id, date, hours, start_time, end_time) VALUES ($1, $2, $3, $4, $5, $6);`;
-  pool.query(queryText, [entry.entry, entry.project_id, entry.date, entry.hours, entry.start_time, entry.end_time])
+  const queryText = `INSERT INTO "entries" (entry, project_id, date, hours) VALUES ($1, $2, $3, $4);`;
+  pool.query(queryText, [entry.entry, entry.project_id, entry.date, entry.hours])
     .then((result) => {
       res.sendStatus(201);
     })

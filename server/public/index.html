@@ -7,16 +7,17 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Prime Time Tracker</title>
 
-  <link href="vendors/angular-material.min.css" rel="stylesheet" type="text/css">
+    <!-- CSS -->
+  <link rel="stylesheet" href="styles/styles.css">
+  <link href="vendors/angular-material.css" rel="stylesheet" type="text/css">
 
   <!-- Angular and Angular-Route -->
-  <script src="vendors/angular.min.js" charset="utf-8"></script>
-  <script src="vendors/angular-route.min.js" charset="utf-8"></script>
+  <script src="vendors/angular.js" charset="utf-8"></script>
+  <script src="vendors/angular-route.js" charset="utf-8"></script>
 
   <!-- Rest of Angular Material -->
   <script src="vendors/angular-animate.min.js" charset="utf-8"></script>
   <script src="vendors/angular-aria.min.js" charset="utf-8"></script>
-  <script src="vendors/angular-messages.min.js" charset="utf-8"></script>
   <script src="vendors/angular-material.min.js" charset="utf-8"></script>
 
   <!-- Charts-->
@@ -30,30 +31,23 @@
   <script src="scripts/controllers/manageProjects.controller.js"></script>
   <script src="scripts/controllers/reports.controller.js"></script>
 
+</head>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="styles/styles.css">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
-  </head>
-  
-  <body ng-app="TimeTrackerApp" ng-cloak>
+<body ng-app="TimeTrackerApp" ng-cloak>
 
   <!-- Angular, are you there? <br> {{2===2}} -->
-  
-  <h1 flex>Prime Time Tracker</h1>
-  
-  <div ng-include=" '/views/templates/nav.html' " class="indexDiv"></div>
-      
-  <main ng-view flex layout="row">
 
-    <!-- nav.html: addEntry.html, manageProjects.html, reports.html -->
+  <div id="wrapper" layout="column" layout-align="center space-around" class="md-padding">
 
-  </main>
+    <h1>Prime Time Tracker</h1>
 
-  </div> 
+    <div ng-include=" '/views/templates/nav.html' "></div>
+      <main ng-view>
+        <!-- addEntry.html, manageProjects.html, reports.html -->
+      </main>
+    </div>
+
+  </div>
 </body>
 
 </html>

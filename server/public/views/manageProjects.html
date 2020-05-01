@@ -1,15 +1,16 @@
-<div class="container">
-  <h2>Add Projects</h2>
+  <h3>Add Projects</h3>
   <!-- the POST -->
-  <div class="addProject">
-    <input flex type="text" id="projectName" ng-model="vm.newProject.project_name" placeholder="Project name"></input>
 
-    <md-button flex class="md-raised md-primary" ng-click="vm.addProject(vm.newProject)">Submit</md-button>
-  </div>
-  
+  <md-input-container layout="row">
+    <input type="text" ng-model="vm.newProject.project_name" placeholder="type project name" required></input>
+  </md-input-container>
+
+  <md-button type="button" class="md-primary" ng-click="vm.addProject(vm.newProject)">submit</md-button>
+
+
   <!-- the GET -->
-  <h3>History</h3>
-  <div class="getProject">
+  <h3>Hours burned per project</h3>
+
     <table>
       <thead>
         <tr>
@@ -18,16 +19,13 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody ng-repeat="project in vm.addProject.list">
+      <tbody ng-repeat="project in vm.project.list">
         <tr>
           <td>{{project.project_name}}</td>
           <td>{{project.sum}}</td>
           <td>
-            <md-button class="md-raised md-warn" ng-click='vm.deleteProject(project)'>Delete</md-button>
+            <md-button class="md-warn md-hue-2" ng-click='vm.deleteProject(project)'>Delete</md-button>
           </td>
         </tr>
       </tbody>
     </table>
-  </div>
-
-  </div>

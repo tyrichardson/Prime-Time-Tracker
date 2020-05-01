@@ -1,72 +1,38 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 body {
-  background-color: aliceblue
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-size: .8rem;
+  background-color: #37474F;
 }
-
-.nav {
-  margin: 20px;
+#wrapper {
+  width: 90%;
+  margin: 0 auto;
+  background-color: #B0BEC5
 }
-
-.indexDiv {
-  padding: 0px;
-  margin: 0px;
+ul {
+  list-style-type: none;
 }
-
-main {
-  padding: 20px;
+select {
+  background-color: #1565C0;
+  color: #E3F2FD;
 }
-
-input, select, option {
-  padding: 2px;
-  margin: 2px;
-}
-
-h1 {
-  padding: 20px;
-}
-
-#addEntry {
-  width: 40%;
-}
-
-#projectName {
-  width: 50%;
-}
-
 table {
-  table-layout: auto;
-  /*width: 100%;*/
   border-collapse: collapse;
 }
-
-td, th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-tr:hover {
-  background-color: thistle;
-}
-
-th {
-  padding-top: 12px;
-  padding-bottom: 12px;
+th, td {
+  border: 1px solid #E3F2FD;
+  padding: 0 .5rem;
   text-align: left;
-  background-color: rgb(255, 241, 185);
-  color: thistle;
 }
-
-  a.button {
-  -webkit-appearance: button;
-  -moz-appearance: button;
-  appearance: button;
-  text-decoration: none;
- /* width: 50%; */
-  padding: 5px;
-  border: 1px solid black;
-  border-radius: 5px;
-  margin: 5px;
+th {
+  border: none;
 }
-/* 
-ul {
-  list-style-type: none
-} */
