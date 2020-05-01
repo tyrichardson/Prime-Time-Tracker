@@ -21,10 +21,6 @@ body {
 ul {
   list-style-type: none;
 }
-select {
-  background-color: #1565C0;
-  color: #E3F2FD;
-}
 table {
   border-collapse: collapse;
 }

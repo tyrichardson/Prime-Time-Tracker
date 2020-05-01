@@ -95,7 +95,7 @@ timeTrackerApp.service('TimeTrackerAppService', [
         .catch((error) => {
           console.log('error deleteEntry in service', error);
           alert(
-            'At this time, entries against existing projects cannot be deleted'
+            'There is a server problme. At this time, entries against projects cannot be deleted.'
           );
         });
     };
@@ -114,7 +114,7 @@ timeTrackerApp.service('TimeTrackerAppService', [
         .catch((error) => {
           console.log('ERROR deleteProject in service', error);
           alert(
-            'At this time, projects with hours burned against them cannot be deleted'
+            'Projects with hours burned against them cannot be deleted. First, delete all tasks associated with the project you wish to delete.'
           );
         });
     };

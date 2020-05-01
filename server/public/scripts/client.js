@@ -1,4 +1,4 @@
-const timeTrackerApp = angular.module('TimeTrackerApp', ['ngRoute', 'ngMaterial', 'chart.js']);
+const timeTrackerApp = angular.module('TimeTrackerApp', ['ngRoute', 'ngMessages', 'ngMaterial', 'chart.js']);
 
 timeTrackerApp.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $mdThemingProvider) {
   console.log('route config in client.js loaded');

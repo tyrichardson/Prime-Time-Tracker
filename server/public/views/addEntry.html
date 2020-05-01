@@ -1,12 +1,13 @@
 <h3>Add Tasks</h3>
 <!-- the POST -->
 
-  <md-input-container  layout="row">
-    <input type="text" id="addEntry" ng-model="vm.newEntry.entry" placeholder="type brief task description" required>
+  <md-input-container layout="row">
+    <input ng-model="vm.newEntry.entry" placeholder="type brief task description" required>
     </input>
   </md-input-container>
 
-  <div layout="row" layout-align="space-around bottom">
+  <div layout="row"  layout-align="space-around bottom">
+
     <md-input-container>
       <md-select ng-model="vm.newEntry.project_id" placeholder="select project" required>
         <md-option value=""><em>*selection required*</em></md-option>
@@ -25,8 +26,9 @@
       </input>
     </md-input-container>
 
-    <md-button type="button" class="md-primary" ng-click="vm.addEntry(vm.newEntry)">submit</md-button>
+    <md-button class="md-primary" ng-click="vm.addEntry(vm.newEntry)">submit</md-button>
   </div>
+
 
 <!-- the GET -->
 <h3>History by date</h3>
