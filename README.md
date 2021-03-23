@@ -1,11 +1,11 @@
 # Prime-Time-Tracker
 
-##Project Management Tracking system
+## Project Management Tracking system
 
 AngularJS, Material, ChartJS, Node/Express, PostgreSQL
 
-Database
--[x]
+### Database
+
   CREATE TABLE "entries" (
   "id" serial primary key,
   "entry" varchar(120),
